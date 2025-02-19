@@ -12,11 +12,9 @@ pipeline {
                     // echo ${myuser}
                     // echo ${mypassword}
                     echo "Setup Stage ..."
+                    pip install -r requirements.txt
                     '''
                 }
-
-                sh "pip install -r requirements.txt"
-            
             }
         
         stage('Test') {
