@@ -8,12 +8,12 @@ pipeline {
             steps {
                 // withCredentials([usernamePassword(credentialsId: 'server-creds', usernameVariable: "myuser", passwordVariable: "mypassword")]) {
                     echo "Setup Stage ..."
-                    sh '''
+                    // sh '''
                     // echo ${myuser}
                     // echo ${mypassword}
 
-                    pip install -r requirements.txt
-                    '''
+                    // pip install -r requirements.txt
+                    // '''
                 }
             }
         
