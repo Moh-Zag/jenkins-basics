@@ -3,10 +3,8 @@ pipeline {
     
                 label 'docker-on-vas'
             }
-
-    stages {
-
             }
+    stages {
 
         stage('Setup') {
             steps {
@@ -47,4 +45,4 @@ pipeline {
     //     }
     // }
     }
-}
+ }
