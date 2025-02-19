@@ -1,24 +1,23 @@
 pipeline {
-            agent { docker { image 'python:3.12.0b3-alpine3.18'
-    
-                label 'docker-on-vas'
-            }
-            }
+    agent any
+
     stages {
+
 
         stage('Setup') {
             steps {
-                withCredentials([usernamePassword(credentialsId: '0d340e37-550d-4237-9738-13b4d23d821a', usernameVariable: "myuser", passwordVariable: "mypassword")]) {
-                    echo "Setup Stage ..."
+                withCredentials([usernamePassword(credentialsId: 'a123890d-3c24-4c57-9fd5-7b3996683427', usernameVariable: "myuser", passwordVariable: "mypassword")]) {
+
                     sh '''
                     echo ${myuser}
                     echo ${mypassword}
-
-                    pip install -r requirements.txt
                     '''
                 }
+
+                sh "pip install -r requirements.txt"
+            
             }
-        
+        }
         stage('Test') {
             steps {
                 sh "pytest"
@@ -38,11 +37,4 @@ pipeline {
         
             
     }
-    
-    // post {
-    //     always{
-    //         cleanWs()
-    //     }
-    // }
-    }
- }
+}
