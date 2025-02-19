@@ -1,12 +1,12 @@
 pipeline {
+            agent any
+
+    stages {
             agent { docker { image 'python:3.12.0b3-alpine3.18'
     
                 label 'docker-on-vas'
             }
             }
-
-    stages {
-
 
         stage('Setup') {
             steps {
