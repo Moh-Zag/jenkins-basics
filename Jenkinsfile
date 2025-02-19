@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+            agent { docker { image 'python:3.12.0b3-alpine3.18'
+    
+                label 'docker-on-vas'
+            }
+            }
 
     stages {
 
@@ -8,11 +12,11 @@ pipeline {
             steps {
                 // withCredentials([usernamePassword(credentialsId: 'server-creds', usernameVariable: "myuser", passwordVariable: "mypassword")]) {
                     echo "Setup Stage ..."
-                    // sh '''
+                    sh '''
                     // echo ${myuser}
                     // echo ${mypassword}
 
-                    // pip install -r requirements.txt
+                    pip install -r requirements.txt
                     // '''
                 }
             }
