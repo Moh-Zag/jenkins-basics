@@ -13,9 +13,8 @@ pipeline {
                     echo ${mypassword}
                     '''
                 }
-                sh "apt install python3.12-venv"
-                sh "python3 -m venv venv"
-                sh "venv/pip install -r requirements.txt"
+
+                sh "pip install -r requirements.txt"
             
             }
         }
