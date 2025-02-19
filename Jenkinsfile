@@ -6,11 +6,12 @@ pipeline {
 
         stage('Setup') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'server-creds', usernameVariable: "myuser", passwordVariable: "mypassword")]) {
+                // withCredentials([usernamePassword(credentialsId: 'server-creds', usernameVariable: "myuser", passwordVariable: "mypassword")]) {
 
                     sh '''
-                    echo ${myuser}
-                    echo ${mypassword}
+                    // echo ${myuser}
+                    // echo ${mypassword}
+                    echo "Setup Stage ..."
                     '''
                 }
 
@@ -36,5 +37,10 @@ pipeline {
         } 
         
             
+    }
+    post {
+        always{
+            cleanWs()
+        }
     }
 }
